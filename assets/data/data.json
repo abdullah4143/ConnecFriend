@@ -1,0 +1,42 @@
+{
+    "users": [
+      {
+        "id": "user1",
+        "username": "alice",
+        "password": "password123",
+        "name": "Alice Wonderland",
+        "profilePic": "assets/images/alice.jpg",
+        "personalInfo": "Loves coding and tea.",
+        "friends": ["user2", "user3"],
+        "ignoreList": ["user5"]
+      },
+      {
+        "id": "user2",
+        "username": "bob",
+        "password": "securepass",
+        "name": "Bob Builder",
+        "profilePic": "assets/images/bob.jpg",
+        "personalInfo": "Building the future.",
+        "friends": ["user1", "user4"],
+        "ignoreList": []
+      }
+    ],
+    "news": [
+      {
+        "userId": "user2",
+        "content": "Just finished a new project!",
+        "timestamp": "2023-10-27T10:00:00Z",
+        "likes": 15,
+        "dislikes": 2
+      }
+    ],
+    "messages": [
+      {
+        "senderId": "user1",
+        "receiverId": "user2",
+        "message": "Hey Bob, how's it going?",
+        "timestamp": "2023-10-27T11:00:00Z"
+      }
+    
+    ]
+  }

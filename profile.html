@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnecFriend</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #212121;
+            color: #dfc8c8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .profile-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-direction: row;
+        }
+
+        @media (max-width: 600px) {
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .profile-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #64b5f6;
+        }
+
+        .profile-card img:hover{
+            transform: scale(1.05);
+        }
+
+        .profile-info {
+            flex-grow: 1;
+        }
+
+        .profile-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .bento-item {
+            background: #222;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 540px) {
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .bento-item:hover {
+            transform: scale(1.025);
+            background: #676060;
+            font-size: 15px;color: black;
+
+        }
+        
+        .friends-list {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .friend-card {
+            background: #222;
+            padding: 10px;
+            border-radius: 10px;
+            width: 160px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+        }
+        .friend-card:hover {
+            transform: scale(1.025);
+        }
+        .friend-card img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 8px;
+        }
+        .stars {
+            color: #ffd700;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card">
+            <img src="./assets/images/pp.png" alt="Profile">
+            <div class="profile-info">
+                <h2>Abdullah Ashraf</h2>
+                <div class="profile-details">💻 Code Wizard | 🎓 AU | 🚀 Freelancer</div>
+            </div>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-item"><strong>Education:</strong> BS in Computer Science</div>
+            <div class="bento-item"><strong>Hobbies:</strong> Gaming, Hiking, Reading</div>
+            <div class="bento-item"><strong>Email:</strong> abdullah.ashraf@outlook</div>
+            <div class="bento-item"><strong>Phone:</strong> +91 343 617-6741</div>
+            <div class="bento-item"><strong>Motto:</strong> Yap Nap Code Repeat</div>
+            <div class="bento-item"><strong>Website:</strong> bugbuds.webflow.io</div>
+        </div>
+<br>
+        <hr>
+
+        <h3 style="text-align: center; margin-top: 20px;">Friends 👯</h3>
+        <div class="friends-list">
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 1">
+                <div>Khalfan Khan</div>
+                <div class="stars">★★★</div>
+            </div>
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 2">
+                <div>Rehan Ahmed</div>
+                <div class="stars">★★</div>
+            </div>
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 3">
+                <div>M Awais</div>
+                <div class="stars">★★★</div>
+            </div>
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 4">
+                <div>Hassan Raza</div>
+                <div class="stars">★★★</div>
+            </div>
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 5">
+                <div>Kanwar Junaid</div>
+                <div class="stars">★★</div>
+            </div>
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 6">
+                <div>Jasim Malik</div>
+                <div class="stars">★★</div>
+            </div>
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 6">
+                <div>Jasim Malik</div>
+                <div class="stars">★★</div>
+            </div>
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 6">
+                <div>Jasim Malik</div>
+                <div class="stars">★★</div>
+            </div>
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 6">
+                <div>Jasim Malik</div>
+                <div class="stars">★★</div>
+            </div>
+            <div class="friend-card">
+                <img src="https://placehold.co/70x70" alt="Friend 6">
+                <div>Jasim Malik</div>
+                <div class="stars">★★</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

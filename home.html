@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeHub - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #212121;
+            color: #dfc8c8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            display: flex;
+            flex-grow: 1;
+            gap: 20px;
+            padding: 1rem;
+        }
+        .sidebar, .friends-list {
+            width: 250px;
+            background-color: #1a1a1a;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .main-content {
+            flex-grow: 1;
+            background: #2a2a2a;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .post {
+            margin-bottom: 1rem;
+            background: #333;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+        }
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .profile-picture {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .navbar {
+            background: #111;
+            color: #dfc8c8;
+        }
+        .btn {
+            background: #64b5f6;
+            border: none;
+            color: #fff;
+        }
+        .btn:hover {
+            background: #42a5f5;
+        }
+
+
+        .white-hr{
+            border-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">ConnecFriend</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" style="text-decoration: underline;"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item" style="text-decoration: underline;"><a class="nav-link" href="profile.html">Profile</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="sidebar">
+            <h5>Abdullah Ashraf</h5>
+            <p>238 Friends</p>
+
+            <hr class="white-hr">
+            <br>
+            <h5>Friend Requests</h5>
+            <p>Maryam Pyari <button class="btn btn-sm accept-request">Accept</button></p>
+            <p>Innoxent Prince <button class="btn btn-sm accept-request">Accept</button></p>
+        </div>
+
+        <div class="main-content">
+            <input type="text" class="form-control mb-3" id="postInput" placeholder="What's on your mind?" data-bs-toggle="modal" data-bs-target="#createPostModal">
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#createPostModal">Create Post</button>
+            
+            
+            <div id="postsContainer">
+                <div class="post">
+                    <div class="d-flex align-items-center">
+                        <img src="./assets/images/Group 6 (1).png"  class="profile-picture">
+                        <h6>Khalfan Khan</h6>
+                    </div>
+                    <p>Just finished my first 10K run!</p>
+                    <img src="./assets/images/Project_002 hero.png" alt="Post image" width="660px">
+                    <div>
+                        <button class="btn like-btn"><i class="bi bi-hand-thumbs-up"></i> Like <span class="like-count">5</span></button>
+                        <button class="btn dislike-btn"><i class="bi bi-hand-thumbs-down"></i> Dislike <span class="dislike-count">2</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="friends-list">
+            <h5>Online Friends</h5>
+            <p>🟢 Khalfan Khan</p>
+            <p>🟢 Rehan Ahmed</p>
+        </div>
+    </div>
+
+    <div class="modal fade" id="createPostModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">Create Post</div>
+                <div class="modal-body">
+                    <textarea class="form-control" id="newPostText" placeholder="What's on your mind?"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="postBtn">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".like-btn").forEach(button => {
+                button.addEventListener("click", function() {
+                    let count = this.querySelector(".like-count");
+                    count.textContent = parseInt(count.textContent) + 1;
+                });
+            });
+            document.querySelectorAll(".dislike-btn").forEach(button => {
+                button.addEventListener("click", function() {
+                    let count = this.querySelector(".dislike-count");
+                    count.textContent = parseInt(count.textContent) + 1;
+                });
+            });
+            document.querySelectorAll(".accept-request").forEach(button => {
+                button.addEventListener("click", function() {
+                    this.parentElement.remove();
+                });
+            });
+            document.getElementById("postBtn").addEventListener("click", function() {
+                let postText = document.getElementById("newPostText").value;
+                if (postText.trim() !== "") {
+                    let postContainer = document.getElementById("postsContainer");
+                    let newPost = document.createElement("div");
+                    newPost.classList.add("post");
+                    newPost.innerHTML = `<div class="d-flex align-items-center">
+                        <img src="./assets/images/pp.png" class="profile-picture">
+                        <h6>You</h6>
+                    </div>
+                    <p>${postText}</p>`;
+                    postContainer.prepend(newPost);
+                    document.getElementById("newPostText").value = "";
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
